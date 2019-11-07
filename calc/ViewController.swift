@@ -15,10 +15,7 @@ class ViewController: UIViewController {
     let MINUS = 11
     let MULTIPLY = 12
     let DIVIDE = 13
-
- 
-    
-    
+    var flag = false
     
     
     @IBOutlet weak var label: UILabel!
@@ -32,24 +29,18 @@ class ViewController: UIViewController {
     @IBAction func setop(Sender:UIButton){
         
         if Sender.tag >= 10 && Sender.tag <= 13 {
-           
-            operand = Sender.tag
-            
-            saveNum1()
-            
+        
+        operand = Sender.tag
+         saveNum1()
         }
-        
-        
+
         if Sender.tag == -2{
             theNumber = "0"
             printnum()
         }
     }
     
-    
-    
-    
-    
+
     func saveNum1(){
         
         num1 = Double(theNumber)!
@@ -57,14 +48,11 @@ class ViewController: UIViewController {
         printnum()
     }
     
-    
 
-    
-    
     
     @IBAction func calculate(Sender:UIButton){
         
-      
+        flag = true
         num2 = Double(theNumber)!
         print("num2 \(num2)")
         
@@ -85,30 +73,37 @@ class ViewController: UIViewController {
             
             answer = Double(num1 / num2)
         }
-    
+        
+       
         num1 = 0
         num2 = 0
-        
         operand = PLUS
-        
         theNumber = String(answer)
         printnum()
+
+        if flag == true  {
+            
+         
+            
+        }
+            
+        else{
         answer = 0.0
+        }
+        
+        
         theNumber = "0"
+       
+        
+    
         
     }
-    
-    
-    
-    
-    
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         printnum()
+
     }
 
     //sets number
@@ -117,8 +112,7 @@ class ViewController: UIViewController {
         label.text = theNumber
         
     }
-    
-    
+
     //gets from users and sets to number
     @IBAction func pressnum(Sender:UIButton){
         
@@ -134,13 +128,7 @@ class ViewController: UIViewController {
     }
     
    
-    
-    
-    
-    
-    
-    
-    
+
     @IBAction func dot(_ sender: Any) {
         
         if theNumber.contains(".") {
@@ -158,6 +146,25 @@ class ViewController: UIViewController {
         
     }
     
-   
+ 
+    @IBAction func percent(_ sender: Any) {
+        
+    
+        var number = label.text
+    
+        var number2 = Double(number!)!
+    
+        var pecent = number2 / 100
+        
+        label.text = String(pecent)
+        
+        
+        
+    }
+    
+    
+    
+    
+    
 }
 
