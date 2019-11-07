@@ -10,7 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    
+   
+
     let PLUS = 10
     let MINUS = 11
     let MULTIPLY = 12
@@ -31,6 +32,7 @@ class ViewController: UIViewController {
         if Sender.tag >= 10 && Sender.tag <= 13 {
         
         operand = Sender.tag
+            
          saveNum1()
         }
 
@@ -164,7 +166,8 @@ class ViewController: UIViewController {
     
     
     
-    
+   
     
 }
+
 
